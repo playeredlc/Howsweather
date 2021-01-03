@@ -1,0 +1,2 @@
+# What is it?
+It's a simple project to get live data using the [OpenWeather API](https://openweathermap.org/api). Dealing with JSON formats, parsing and fetching specific data which will be sent back to the browser as HTML. 
