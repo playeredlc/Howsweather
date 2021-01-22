@@ -1,3 +1,4 @@
+/* general layout */
 * {
   box-sizing: border-box;
 }
@@ -17,4 +18,30 @@ input{
 }
 #weather-list{
   margin-top: 5%;
+}
+
+/* current weather */
+.date{
+  font-size:0.8rem;
+  margin-bottom: 0;
+}
+.temp{
+  margin-top: 16px;
+  padding: 0;
+}
+.temp-current{
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+.temp-minmax {
+  font-size: 0.8rem;
+}
+img{
+  width: 100%;
+}
+.current-img{
+  padding: 0
+}
+.current-extra-info{
+  font-size: 0.8rem;
 }

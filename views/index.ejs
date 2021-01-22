@@ -12,6 +12,7 @@
   <body>
     <div class="container-fluid">
 
+      <!-- Search bar -->
       <form id="form" class="row" action="/" method="POST">
         <div class="col-12">
           <input type="text" id="city-input" class="form-control" name="cityName" placeholder="Type to search...">
@@ -20,7 +21,8 @@
           <button id="search-btn" type="submit" class="btn btn-outline-dark btn-sm">Search</button>
         </div>
       </form>
-  
+      
+      <!-- Left menu -->
       <div id="weather-list" class="row">
         <div class="col-4 col-md-3 col-lg-2">
           <div class="list-group" id="list-tab" role="tablist">
@@ -30,15 +32,38 @@
         </div>
         <div class="col-8 col-md-9 col-lg-10">
           <div class="tab-content" id="nav-tabContent">
+            <!-- current data content -->
             <div class="tab-pane fade show active" id="list-current" role="tabpanel" aria-labelledby="list-current-list">
-              <%= currentData %>
+              <div class="row">
+                <div class="col-12">
+                  <h3><%= currentData.location %></h1>
+                  <p class="date text-muted"><%= currentData.date %></p>
+                  <p><%= currentData.description %></p>
+                </div>
+                <div class="col-6 current-img">
+                  <img src="<%=currentData.iconURL%>" alt="current-weather-image">
+                </div>
+                <div class="col-6 temp">
+                  <p class="temp-current"><%= currentData.temp %>°C </p>
+                  <p class="temp-minmax text-muted"><%= currentData.tempMin %>°C - <%= currentData.tempMax %>°C</p>
+                </div>
+                <div class="col-12">
+                  <p class="current-extra-info">
+                    Feeling like: <%= currentData.feelsLike %>°C <br>
+                    Humidity: <%= currentData.humidity %>% <br>
+                    Wind Speed: <%=currentData.windSpeed%> km/h
+                  </p>
+                </div>
+              </div>   
             </div>
+            <!-- forecast content -->
             <div class="tab-pane fade" id="list-forecast" role="tabpanel" aria-labelledby="list-forecast-list">
               <%= forecastData %>
             </div>
          </div>
         </div>
       </div>
+
 
     </div>
 
