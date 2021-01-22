@@ -34,16 +34,16 @@
           <div class="tab-content" id="nav-tabContent">
             <!-- current data content -->
             <div class="tab-pane fade show active" id="list-current" role="tabpanel" aria-labelledby="list-current-list">
-              <div class="row">
+              <div class="row current-row">
                 <div class="col-12">
                   <h3><%= currentData.location %></h1>
                   <p class="date text-muted"><%= currentData.date %></p>
                   <p><%= currentData.description %></p>
                 </div>
-                <div class="col-6 current-img">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 current-img">
                   <img src="<%=currentData.iconURL%>" alt="current-weather-image">
                 </div>
-                <div class="col-6 temp">
+                <div class="col-6 col-sm-8 col-md-9 col-lg-10 temp">
                   <p class="temp-current"><%= currentData.temp %>°C </p>
                   <p class="temp-minmax text-muted"><%= currentData.tempMin %>°C - <%= currentData.tempMax %>°C</p>
                 </div>
