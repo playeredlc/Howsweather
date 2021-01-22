@@ -66,21 +66,150 @@
                 <!-- week days tab -->
                 <div class="col-12">
                   <div class="forecast-tab list-group list-group-horizontal" id="list-tab" role="tablist">
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action active" id="list-0-list" data-bs-toggle="list" href="#list-0" role="tab" aria-controls="zero">Mon</a>
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-1-list" data-bs-toggle="list" href="#list-1" role="tab" aria-controls="1">Tue</a>                    
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-2-list" data-bs-toggle="list" href="#list-2" role="tab" aria-controls="2">Wed</a>
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-3-list" data-bs-toggle="list" href="#list-3" role="tab" aria-controls="3">Thu</a>
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-4-list" data-bs-toggle="list" href="#list-4" role="tab" aria-controls="4">Fri</a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action active" id="list-0-list" data-bs-toggle="list" href="#list-0" role="tab" aria-controls="0" style="background-image: url('<%=forecastData[0].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[0].date.slice)(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-1-list" data-bs-toggle="list" href="#list-1" role="tab" aria-controls="1" style="background-image: url('<%=forecastData[1].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[1].date).slice(0,3) %> </a>                    
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-2-list" data-bs-toggle="list" href="#list-2" role="tab" aria-controls="2" style="background-image: url('<%=forecastData[2].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[2].date).slice(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-3-list" data-bs-toggle="list" href="#list-3" role="tab" aria-controls="3" style="background-image: url('<%=forecastData[3].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[3].date).slice(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-4-list" data-bs-toggle="list" href="#list-4" role="tab" aria-controls="4" style="background-image: url('<%=forecastData[4].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[4].date).slice(0,3) %> </a>
                   </div>
                </div>
                 <!-- content referent to each button -->
                 <div class="col-12">
                   <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-0" role="tabpanel" aria-labelledby="list-0-list">DAY 0 CONTENT</div>
-                    <div class="tab-pane fade" id="list-1" role="tabpanel" aria-labelledby="list-1-list">DAY 1 CONTENT</div>
-                    <div class="tab-pane fade" id="list-2" role="tabpanel" aria-labelledby="list-2-list">DAY 2 CONTENT</div>
-                    <div class="tab-pane fade" id="list-3" role="tabpanel" aria-labelledby="list-3-list">DAY 3 CONTENT</div>
-                    <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list">DAY 4 CONTENT</div>
+                    <div class="tab-pane fade show active" id="list-0" role="tabpanel" aria-labelledby="list-0-list">
+                        
+                      <div class="row current-row">
+                        <div class="current-header col-6">
+                          <h3 class="city-name"><%= forecastData[0].location %></h1>
+                          <p class="date text-muted"><%= forecastData[0].date %></p>
+                          <p><%= forecastData[0].description %></p>
+                        </div>
+                        <div class="current-info row">
+                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                            <img src="<%=forecastData[0].iconURL%>" alt="current-weather-image">
+                          </div>
+                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                            <p class="temp-current"><%= forecastData[0].temp %>°C </p>
+                            <p class="temp-minmax text-muted"><%= forecastData[0].tempMin %>°C - <%= forecastData[0].tempMax %>°C</p>
+                          </div>
+                        </div>
+                        <div class="current-extra-info col-12">
+                          <p>
+                            Precipitation: <%= forecastData[0].pop %>% <br>
+                            Humidity: <%= forecastData[0].humidity %>% <br>
+                            Wind Speed: <%=forecastData[0].windSpeed%> km/h
+                          </p>
+                        </div>
+                      </div> 
+                   
+                    </div>
+                    <div class="tab-pane fade" id="list-1" role="tabpanel" aria-labelledby="list-1-list">
+                      
+                      <div class="row current-row">
+                        <div class="current-header col-6">
+                          <h3 class="city-name"><%= forecastData[1].location %></h1>
+                          <p class="date text-muted"><%= forecastData[1].date %></p>
+                          <p><%= forecastData[1].description %></p>
+                        </div>
+                        <div class="current-info row">
+                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                            <img src="<%=forecastData[1].iconURL%>" alt="current-weather-image">
+                          </div>
+                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                            <p class="temp-current"><%= forecastData[1].temp %>°C </p>
+                            <p class="temp-minmax text-muted"><%= forecastData[1].tempMin %>°C - <%= forecastData[1].tempMax %>°C</p>
+                          </div>
+                        </div>
+                        <div class="current-extra-info col-12">
+                          <p>
+                            Precipitation: <%= forecastData[1].pop %>% <br>
+                            Humidity: <%= forecastData[1].humidity %>% <br>
+                            Wind Speed: <%=forecastData[1].windSpeed%> km/h
+                          </p>
+                        </div>
+                      </div> 
+
+                    </div>
+                    <div class="tab-pane fade" id="list-2" role="tabpanel" aria-labelledby="list-2-list">
+
+                      <div class="row current-row">
+                        <div class="current-header col-6">
+                          <h3 class="city-name"><%= forecastData[2].location %></h1>
+                          <p class="date text-muted"><%= forecastData[2].date %></p>
+                          <p><%= forecastData[2].description %></p>
+                        </div>
+                        <div class="current-info row">
+                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                            <img src="<%=forecastData[2].iconURL%>" alt="current-weather-image">
+                          </div>
+                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                            <p class="temp-current"><%= forecastData[2].temp %>°C </p>
+                            <p class="temp-minmax text-muted"><%= forecastData[2].tempMin %>°C - <%= forecastData[2].tempMax %>°C</p>
+                          </div>
+                        </div>
+                        <div class="current-extra-info col-12">
+                          <p>
+                            Precipitation: <%= forecastData[2].pop %>% <br>
+                            Humidity: <%= forecastData[2].humidity %>% <br>
+                            Wind Speed: <%=forecastData[2].windSpeed%> km/h
+                          </p>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="list-3" role="tabpanel" aria-labelledby="list-3-list">
+                      <div class="row current-row">
+                        <div class="current-header col-6">
+                          <h3 class="city-name"><%= forecastData[3].location %></h1>
+                          <p class="date text-muted"><%= forecastData[3].date %></p>
+                          <p><%= forecastData[3].description %></p>
+                        </div>
+                        <div class="current-info row">
+                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                            <img src="<%=forecastData[3].iconURL%>" alt="current-weather-image">
+                          </div>
+                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                            <p class="temp-current"><%= forecastData[3].temp %>°C </p>
+                            <p class="temp-minmax text-muted"><%= forecastData[3].tempMin %>°C - <%= forecastData[3].tempMax %>°C</p>
+                          </div>
+                        </div>
+                        <div class="current-extra-info col-12">
+                          <p>
+                            Precipitation: <%= forecastData[3].pop %>% <br>
+                            Humidity: <%= forecastData[3].humidity %>% <br>
+                            Wind Speed: <%=forecastData[3].windSpeed%> km/h
+                          </p>
+                        </div>
+                      </div> 
+
+                    </div>
+                    <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list">
+
+                      <div class="row current-row">
+                        <div class="current-header col-6">
+                          <h3 class="city-name"><%= forecastData[4].location %></h1>
+                          <p class="date text-muted"><%= forecastData[4].date %></p>
+                          <p><%= forecastData[4].description %></p>
+                        </div>
+                        <div class="current-info row">
+                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                            <img src="<%=forecastData[4].iconURL%>" alt="current-weather-image">
+                          </div>
+                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                            <p class="temp-current"><%= forecastData[4].temp %>°C </p>
+                            <p class="temp-minmax text-muted"><%= forecastData[4].tempMin %>°C - <%= forecastData[4].tempMax %>°C</p>
+                          </div>
+                        </div>
+                        <div class="current-extra-info col-12">
+                          <p>
+                            Precipitation: <%= forecastData[4].pop %>% <br>
+                            Humidity: <%= forecastData[4].humidity %>% <br>
+                            Wind Speed: <%=forecastData[4].windSpeed%> km/h
+                          </p>
+                        </div>
+                      </div> 
+
+                    </div>
                 </div>
               </div>
             </div>
