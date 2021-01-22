@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   res.render('index', {
     currentData: 'This is the date on current weather.',
-    forecastData: "This is the on the forecast."
+    forecastData: 'This is the on the forecast.'
   });
 });
 

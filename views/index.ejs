@@ -12,7 +12,7 @@
   <body>
     <div class="container-fluid">
 
-      <!-- Search bar -->
+      <!-- search bar -->
       <form id="form" class="row" action="/" method="POST">
         <div class="col-12">
           <input type="text" id="city-input" class="form-control" name="cityName" placeholder="Type to search...">
@@ -22,33 +22,36 @@
         </div>
       </form>
       
-      <!-- Left menu -->
       <div id="weather-list" class="row">
-        <div class="col-4 col-md-3 col-lg-2">
+        <!-- left menu -->
+        <div class="col-12 col-sm-12 col-md-3 col-lg-2">
           <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-light list-group-item-action active" id="list-current-list" data-bs-toggle="list" href="#list-current" role="tab" aria-controls="current">Current</a> 
             <a class="list-group-item list-group-item-light list-group-item-action" id="list-forecast-list" data-bs-toggle="list" href="#list-forecast" role="tab" aria-controls="forecast">Forecast</a>
           </div>
         </div>
-        <div class="col-8 col-md-9 col-lg-10">
+        <!-- content -->
+        <div class="col-12 col-sm-12 col-md-9 col-lg-10">
           <div class="tab-content" id="nav-tabContent">
             <!-- current data content -->
             <div class="tab-pane fade show active" id="list-current" role="tabpanel" aria-labelledby="list-current-list">
               <div class="row current-row">
-                <div class="col-12">
-                  <h3><%= currentData.location %></h1>
+                <div class="current-header col-12">
+                  <h3 class="city-name"><%= currentData.location %></h1>
                   <p class="date text-muted"><%= currentData.date %></p>
                   <p><%= currentData.description %></p>
                 </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 current-img">
-                  <img src="<%=currentData.iconURL%>" alt="current-weather-image">
+                <div class="current-info row">
+                  <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                    <img src="<%=currentData.iconURL%>" alt="current-weather-image">
+                  </div>
+                  <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                    <p class="temp-current"><%= currentData.temp %>°C </p>
+                    <p class="temp-minmax text-muted"><%= currentData.tempMin %>°C - <%= currentData.tempMax %>°C</p>
+                  </div>
                 </div>
-                <div class="col-6 col-sm-8 col-md-9 col-lg-10 temp">
-                  <p class="temp-current"><%= currentData.temp %>°C </p>
-                  <p class="temp-minmax text-muted"><%= currentData.tempMin %>°C - <%= currentData.tempMax %>°C</p>
-                </div>
-                <div class="col-12">
-                  <p class="current-extra-info">
+                <div class="current-extra-info col-12">
+                  <p>
                     Feeling like: <%= currentData.feelsLike %>°C <br>
                     Humidity: <%= currentData.humidity %>% <br>
                     Wind Speed: <%=currentData.windSpeed%> km/h
@@ -56,14 +59,34 @@
                 </div>
               </div>   
             </div>
+
             <!-- forecast content -->
             <div class="tab-pane fade" id="list-forecast" role="tabpanel" aria-labelledby="list-forecast-list">
-              <%= forecastData %>
+              <div class="row">
+                <!-- week days tab -->
+                <div class="col-12">
+                  <div class="forecast-tab list-group list-group-horizontal" id="list-tab" role="tablist">
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action active" id="list-0-list" data-bs-toggle="list" href="#list-0" role="tab" aria-controls="zero">Mon</a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-1-list" data-bs-toggle="list" href="#list-1" role="tab" aria-controls="1">Tue</a>                    
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-2-list" data-bs-toggle="list" href="#list-2" role="tab" aria-controls="2">Wed</a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-3-list" data-bs-toggle="list" href="#list-3" role="tab" aria-controls="3">Thu</a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-4-list" data-bs-toggle="list" href="#list-4" role="tab" aria-controls="4">Fri</a>
+                  </div>
+               </div>
+                <!-- content referent to each button -->
+                <div class="col-12">
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-0" role="tabpanel" aria-labelledby="list-0-list">DAY 0 CONTENT</div>
+                    <div class="tab-pane fade" id="list-1" role="tabpanel" aria-labelledby="list-1-list">DAY 1 CONTENT</div>
+                    <div class="tab-pane fade" id="list-2" role="tabpanel" aria-labelledby="list-2-list">DAY 2 CONTENT</div>
+                    <div class="tab-pane fade" id="list-3" role="tabpanel" aria-labelledby="list-3-list">DAY 3 CONTENT</div>
+                    <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list">DAY 4 CONTENT</div>
+                </div>
+              </div>
             </div>
          </div>
         </div>
       </div>
-
 
     </div>
 
