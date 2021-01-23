@@ -1,19 +1,21 @@
-ctx = document.getElementById('myChart').getContext('2d');
+// 'data' chart parameter
+function genChartData(day){ 
+  myData = document.getElementById('canvasDay'+day).dataset.graphics;
+  myData = myData.split(',').map(x=>Number(x));
+  const chartData = {
+    labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
+    datasets: [{
+      label: 'Temperature',
+      data: myData,
+      backgroundColor: 'rgba(127, 127, 0, 0.5)',
+      borderColor:  'rgba(127, 127, 0, 1)',
+      borderWidth: 1
+    }]
+  };
+  return chartData;
+}
 
-myData = document.getElementById('canvasDay0').dataset.graphics;
-myData = myData.split(',').map(x=>Number(x));
-
-const chartData = {
-  labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
-  datasets: [{
-    label: 'Temperature',
-    data: myData,
-    backgroundColor: 'rgba(127, 127, 0, 0.5)',
-    borderColor:  'rgba(127, 127, 0, 1)',
-    borderWidth: 1
-  }]
-};
-
+// 'options' chart parameter
 const chartOpt = {
   scales: {
     yAxes: [{
@@ -53,10 +55,15 @@ const chartOpt = {
       });
     }
   }
-};			
-      
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: chartData,
-    options: chartOpt
+};
+
+// generate charts
+const charts=5;
+for(i=0; i<charts; i++){
+  var ctx = document.getElementById('myChart'+i).getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: genChartData(i),
+      options: chartOpt
   });
+};
