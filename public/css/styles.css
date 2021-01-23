@@ -61,7 +61,7 @@ img{
   margin-top: 5%;
 }
 .forecast-item{
-  height: 100px;
+  height: 70px;
 }
 .forecast-chart{
   position: relative;
@@ -69,8 +69,19 @@ img{
   height: 150px;
   width: 100%;
 }
+.forecast-header{
+  margin-top: 3%;
+}
 
 /* responsiveness */
+
+/* landscape phone */
+@media only screen and (min-width: 576px){
+  .forecast-item{
+    height: 100px;
+  }
+}
+
 /* tablets */
 @media only screen and (min-width: 768px){
   .current-header{
@@ -81,5 +92,12 @@ img{
   }
   .forecast-chart{
     height: 200px;
+  }
+}
+
+/* laptops */
+@media only screen and (min-width: 992px){
+  .forecast-item{
+    height: 120px;
   }
 }

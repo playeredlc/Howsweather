@@ -42,10 +42,10 @@
                   <p><%= currentData.description %></p>
                 </div>
                 <div class="current-info row">
-                  <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                  <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 current-img">
                     <img src="<%=currentData.iconURL%>" alt="current-weather-image">
                   </div>
-                  <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                  <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                     <p class="temp-current"><%= currentData.temp %>°C </p>
                     <p class="temp-minmax text-muted"><%= currentData.tempMin %>°C - <%= currentData.tempMax %>°C</p>
                   </div>
@@ -66,29 +66,30 @@
                 <!-- week days tab -->
                 <div class="col-12">
                   <div class="forecast-tab list-group list-group-horizontal" id="list-tab" role="tablist">
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action active" id="list-0-list" data-bs-toggle="list" href="#list-0" role="tab" aria-controls="0" style="background-image: url('<%=forecastData[0].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[0].date.slice)(0,3) %> </a>
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-1-list" data-bs-toggle="list" href="#list-1" role="tab" aria-controls="1" style="background-image: url('<%=forecastData[1].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[1].date).slice(0,3) %> </a>                    
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-2-list" data-bs-toggle="list" href="#list-2" role="tab" aria-controls="2" style="background-image: url('<%=forecastData[2].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[2].date).slice(0,3) %> </a>
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-3-list" data-bs-toggle="list" href="#list-3" role="tab" aria-controls="3" style="background-image: url('<%=forecastData[3].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[3].date).slice(0,3) %> </a>
-                    <a class="forecast-item flex-fill list-group-item list-group-item-action" id="list-4-list" data-bs-toggle="list" href="#list-4" role="tab" aria-controls="4" style="background-image: url('<%=forecastData[4].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[4].date).slice(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action list-group-item-dark active" id="list-0-list" data-bs-toggle="list" href="#list-0" role="tab" aria-controls="0" style="background-image: url('<%=forecastData[0].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[0].date.slice)(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action list-group-item-dark" id="list-1-list" data-bs-toggle="list" href="#list-1" role="tab" aria-controls="1" style="background-image: url('<%=forecastData[1].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[1].date).slice(0,3) %> </a>                    
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action list-group-item-dark" id="list-2-list" data-bs-toggle="list" href="#list-2" role="tab" aria-controls="2" style="background-image: url('<%=forecastData[2].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[2].date).slice(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action list-group-item-dark" id="list-3-list" data-bs-toggle="list" href="#list-3" role="tab" aria-controls="3" style="background-image: url('<%=forecastData[3].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[3].date).slice(0,3) %> </a>
+                    <a class="forecast-item flex-fill list-group-item list-group-item-action list-group-item-dark" id="list-4-list" data-bs-toggle="list" href="#list-4" role="tab" aria-controls="4" style="background-image: url('<%=forecastData[4].iconURL%>'); background-size: contain; background-repeat: no-repeat;"> <%= (forecastData[4].date).slice(0,3) %> </a>
                   </div>
                </div>
                 <!-- content referent to each button -->
                 <div class="col-12">
                   <div class="tab-content" id="nav-tabContent">
+                    
+                    <!-- DAY 0 -->
                     <div class="tab-pane fade show active" id="list-0" role="tabpanel" aria-labelledby="list-0-list">
-                        
                       <div class="row current-row">
-                        <div class="current-header col-6">
+                        <div class="forecast-header col-6">
                           <h3 class="city-name"><%= forecastData[0].location %></h1>
                           <p class="date text-muted"><%= forecastData[0].date %></p>
                           <p><%= forecastData[0].description %></p>
                         </div>
                         <div class="current-info row">
-                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 current-img">
                             <img src="<%=forecastData[0].iconURL%>" alt="current-weather-image">
                           </div>
-                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-current"><%= forecastData[0].temp %>°C </p>
                             <p class="temp-minmax text-muted"><%= forecastData[0].tempMin %>°C - <%= forecastData[0].tempMax %>°C</p>
                           </div>
@@ -104,21 +105,21 @@
                             <canvas id="myChart0"></canvas>
                         </div>
                       </div> 
-                   
                     </div>
-                    <div class="tab-pane fade" id="list-1" role="tabpanel" aria-labelledby="list-1-list">
-                      
+
+                    <!-- DAY 1 -->
+                    <div class="tab-pane fade" id="list-1" role="tabpanel" aria-labelledby="list-1-list">                     
                       <div class="row current-row">
-                        <div class="current-header col-6">
+                        <div class="forecast-header col-6">
                           <h3 class="city-name"><%= forecastData[1].location %></h1>
                           <p class="date text-muted"><%= forecastData[1].date %></p>
                           <p><%= forecastData[1].description %></p>
                         </div>
                         <div class="current-info row">
-                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 current-img">
                             <img src="<%=forecastData[1].iconURL%>" alt="current-weather-image">
                           </div>
-                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-current"><%= forecastData[1].temp %>°C </p>
                             <p class="temp-minmax text-muted"><%= forecastData[1].tempMin %>°C - <%= forecastData[1].tempMax %>°C</p>
                           </div>
@@ -134,21 +135,21 @@
                           <canvas id="myChart1"></canvas>
                         </div>
                       </div> 
-
                     </div>
+                    
+                    <!-- DAY 2 -->
                     <div class="tab-pane fade" id="list-2" role="tabpanel" aria-labelledby="list-2-list">
-
                       <div class="row current-row">
-                        <div class="current-header col-6">
+                        <div class="forecast-header col-6">
                           <h3 class="city-name"><%= forecastData[2].location %></h1>
                           <p class="date text-muted"><%= forecastData[2].date %></p>
                           <p><%= forecastData[2].description %></p>
                         </div>
                         <div class="current-info row">
-                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 current-img">
                             <img src="<%=forecastData[2].iconURL%>" alt="current-weather-image">
                           </div>
-                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-current"><%= forecastData[2].temp %>°C </p>
                             <p class="temp-minmax text-muted"><%= forecastData[2].tempMin %>°C - <%= forecastData[2].tempMax %>°C</p>
                           </div>
@@ -164,20 +165,21 @@
                           <canvas id="myChart2"></canvas>
                         </div>
                       </div>
-
                     </div>
+
+                    <!-- DAY 3 -->
                     <div class="tab-pane fade" id="list-3" role="tabpanel" aria-labelledby="list-3-list">
                       <div class="row current-row">
-                        <div class="current-header col-6">
+                        <div class="forecast-header col-6">
                           <h3 class="city-name"><%= forecastData[3].location %></h1>
                           <p class="date text-muted"><%= forecastData[3].date %></p>
                           <p><%= forecastData[3].description %></p>
                         </div>
                         <div class="current-info row">
-                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 current-img">
                             <img src="<%=forecastData[3].iconURL%>" alt="current-weather-image">
                           </div>
-                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-current"><%= forecastData[3].temp %>°C </p>
                             <p class="temp-minmax text-muted"><%= forecastData[3].tempMin %>°C - <%= forecastData[3].tempMax %>°C</p>
                           </div>
@@ -192,22 +194,22 @@
                         <div class="forecast-chart" id="canvasDay3" data-graphics="<%= graphicsData[4] %>">
                           <canvas id="myChart3"></canvas>
                         </div>
-                      </div> 
-
+                      </div>
                     </div>
-                    <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list">
 
+                    <!-- DAY 4 -->
+                    <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list">
                       <div class="row current-row">
-                        <div class="current-header col-6">
+                        <div class="forecast-header col-6">
                           <h3 class="city-name"><%= forecastData[4].location %></h1>
                           <p class="date text-muted"><%= forecastData[4].date %></p>
                           <p><%= forecastData[4].description %></p>
                         </div>
                         <div class="current-info row">
-                          <div class="col-3 col-sm-2 col-md-3 col-lg-2 current-img">
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 current-img">
                             <img src="<%=forecastData[4].iconURL%>" alt="current-weather-image">
                           </div>
-                          <div class="col-9 col-sm-10 col-md-9 col-lg-10 temp">
+                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-current"><%= forecastData[4].temp %>°C </p>
                             <p class="temp-minmax text-muted"><%= forecastData[4].tempMin %>°C - <%= forecastData[4].tempMax %>°C</p>
                           </div>
@@ -222,9 +224,9 @@
                         <div class="forecast-chart" id="canvasDay4" data-graphics="<%= graphicsData[5] %>">
                           <canvas id="myChart4"></canvas>
                         </div>
-                      </div> 
-
+                      </div>
                     </div>
+                    
                 </div>
               </div>
             </div>
