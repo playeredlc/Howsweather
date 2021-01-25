@@ -18,10 +18,10 @@ exports.getCurrentWeatherData = (URL, callback) => {
           iconURL:'http://openweathermap.org/img/wn/'+ currentData.weather[0].icon +'@4x.png',
           date: currentDtDate.toLocaleString("en-US", {weekday: 'long', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit'})
         };
-        callback(currentWeatherData);
+        callback(false, currentWeatherData);
         // return currentWeatherData;
       }else {
-        callback(currentData.cod);
+        callback(currentData.cod, null);
         // return currentData.cod;
       }
     });
@@ -94,11 +94,11 @@ exports.getForecastWeatherData = (URL, callback) => {
         const results = new Array();
         results.push(forecastWeatherData);
         results.push(graphicsData);
-        callback(results);
+        callback(false, results);
         // return results;
       }
       else{
-        callback(forecastData.cod);
+        callback(forecastData.cod, null);
         // return forecastData.cod;
       }
     });

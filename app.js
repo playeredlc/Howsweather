@@ -22,16 +22,26 @@ app.post('/', (req, res) => {
   const currentURL = 'https://api.openweathermap.org/data/2.5/weather?q='+ req.body.cityName +'&appid='+ process.env.API_KEY +'&units=' + units;
   const forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q='+ req.body.cityName +'&appid='+ process.env.API_KEY + '&units=' +units;
 
-  getData.getCurrentWeatherData(currentURL, (result) => {
-    var myWeatherData = result;
-    getData.getForecastWeatherData(forecastURL, (result) => {
-      var myForecastData = result;
-      res.render('show-info', {
-        currentData: myWeatherData,
-        forecastData: myForecastData[0],
-        graphicsData: myForecastData[1]
+  getData.getCurrentWeatherData(currentURL, (err, result) => {
+    if(err){
+      console.log(err);
+      res.redirect('/');
+    }else{
+      var myWeatherData = result;
+      getData.getForecastWeatherData(forecastURL, (err, result) => {
+        if(err){
+          console.log(err);
+          res.redirect('/');
+        }else{
+          var myForecastData = result;
+          res.render('show-info', {
+            currentData: myWeatherData,
+            forecastData: myForecastData[0],
+            graphicsData: myForecastData[1]
+          });
+        }
       });
-    });
+    }
   });  
 });
 
