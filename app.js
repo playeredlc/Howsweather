@@ -14,11 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    currentData: fakeCurrentData,
-    forecastData: fakeForecastData,
-    graphicsData: fakeGraphicsData
-  });
+  res.render('index');
 });
 
 app.post('/', (req, res) => {
@@ -30,7 +26,7 @@ app.post('/', (req, res) => {
     var myWeatherData = result;
     getData.getForecastWeatherData(forecastURL, (result) => {
       var myForecastData = result;
-      res.render('index', {
+      res.render('show-info', {
         currentData: myWeatherData,
         forecastData: myForecastData[0],
         graphicsData: myForecastData[1]
