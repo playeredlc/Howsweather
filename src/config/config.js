@@ -3,7 +3,7 @@ require('dotenv').config()
 let config = {};
 
 config.api = {
-    units: 'metrics',
+    units: 'metric',
     getWeatherURL: (location) => {
         return 'https://api.openweathermap.org/data/2.5/weather?q='+ location +'&appid='+ process.env.API_KEY +'&units=' + config.api.units;
     },
