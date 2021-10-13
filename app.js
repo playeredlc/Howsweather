@@ -1,27 +1,27 @@
-require('dotenv').config()
 const express = require('express');
-const https = require('https');
 const bodyParser = require('body-parser');
 const getData = require(__dirname+'/get-data.js');
+const config = require(__dirname+'/src/config/config.js');
 
 const {performance} = require('perf_hooks');
 
 const app = express();
 const port = 3000;
 
-app.use(express.static('public'));
+app.use(express.static(__dirname+'/src/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
+app.set('views', __dirname+'/src/views');
 
 app.get('/', (req, res) => {
   res.render('index');
 });
 
 app.post('/', (req, res) => {
-  const units = 'metric';
-  const currentURL = 'https://api.openweathermap.org/data/2.5/weather?q='+ req.body.cityName +'&appid='+ process.env.API_KEY +'&units=' + units;
-  const forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q='+ req.body.cityName +'&appid='+ process.env.API_KEY + '&units=' +units;
 
+  const currentURL = config.api.getWeatherURL(req.body.cityName);
+  const forecastURL = config.api.getForecastURL(req.body.cityName);
+  
   getData.getCurrentWeatherData(currentURL, (err, result) => {
     if(err){
       console.log(err);
