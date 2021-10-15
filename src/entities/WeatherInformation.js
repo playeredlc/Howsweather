@@ -2,7 +2,7 @@ module.exports = class WeatherInformation {
 	
 	constructor (openWeatherApiResponse) {
 
-		if(openWeatherApiResponse.cod == 200) {
+		if(openWeatherApiResponse.cod == 200 || openWeatherApiResponse.cod == undefined) {
 			
 			this.data = {
 				location: openWeatherApiResponse.name || null,
