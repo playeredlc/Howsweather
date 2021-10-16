@@ -27,14 +27,14 @@
                   </div>
                   <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                     <p class="temp-weather"><%= currentData.temp %>°C </p>
-                    <p class="temp-minmax text-muted"><%= currentData.tempMin %>°C - <%= currentData.tempMax %>°C</p>
+                    <p class="temp-minmax text-muted"><%= currentData.temp_min %>°C - <%= currentData.temp_max %>°C</p>
                   </div>
                 </div>
                 <div class="weather-extra-info col-12">
                   <p>
-                    Feeling like: <%= currentData.feelsLike %>°C <br>
+                    Feeling like: <%= currentData.feels_like %>°C <br>
                     Humidity: <%= currentData.humidity %>% <br>
-                    Wind Speed: <%=currentData.windSpeed%> km/h
+                    Wind Speed: <%=currentData.speed%> km/h
                   </p>
                 </div>
               </div>   
@@ -71,14 +71,14 @@
                           </div>
                           <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-weather"><%= forecastData[0].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[0].tempMin %>°C - <%= forecastData[0].tempMax %>°C</p>
+                            <p class="temp-minmax text-muted"><%= forecastData[0].temp_min %>°C - <%= forecastData[0].temp_max %>°C</p>
                           </div>
                         </div>
                         <div class="weather-extra-info col-12">
                           <p>
                             Precipitation: <%= forecastData[0].pop %>% <br>
                             Humidity: <%= forecastData[0].humidity %>% <br>
-                            Wind Speed: <%=forecastData[0].windSpeed%> km/h
+                            Wind Speed: <%=forecastData[0].speed%> km/h
                           </p>
                         </div>
                         <div class="forecast-chart" id="canvasDay0" data-graphics="<%= graphicsData[1] %>">
@@ -101,14 +101,14 @@
                           </div>
                           <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-weather"><%= forecastData[1].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[1].tempMin %>°C - <%= forecastData[1].tempMax %>°C</p>
+                            <p class="temp-minmax text-muted"><%= forecastData[1].temp_min %>°C - <%= forecastData[1].temp_max %>°C</p>
                           </div>
                         </div>
                         <div class="weather-extra-info col-12">
                           <p>
                             Precipitation: <%= forecastData[1].pop %>% <br>
                             Humidity: <%= forecastData[1].humidity %>% <br>
-                            Wind Speed: <%=forecastData[1].windSpeed%> km/h
+                            Wind Speed: <%=forecastData[1].speed%> km/h
                           </p>
                         </div>
                         <div class="forecast-chart" id="canvasDay1" data-graphics="<%= graphicsData[2] %>">
@@ -131,14 +131,14 @@
                           </div>
                           <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-weather"><%= forecastData[2].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[2].tempMin %>°C - <%= forecastData[2].tempMax %>°C</p>
+                            <p class="temp-minmax text-muted"><%= forecastData[2].temp_min %>°C - <%= forecastData[2].temp_max %>°C</p>
                           </div>
                         </div>
                         <div class="weather-extra-info col-12">
                           <p>
                             Precipitation: <%= forecastData[2].pop %>% <br>
                             Humidity: <%= forecastData[2].humidity %>% <br>
-                            Wind Speed: <%=forecastData[2].windSpeed%> km/h
+                            Wind Speed: <%=forecastData[2].speed%> km/h
                           </p>
                         </div>
                         <div class="forecast-chart" id="canvasDay2" data-graphics="<%= graphicsData[3] %>">
@@ -161,14 +161,14 @@
                           </div>
                           <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-weather"><%= forecastData[3].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[3].tempMin %>°C - <%= forecastData[3].tempMax %>°C</p>
+                            <p class="temp-minmax text-muted"><%= forecastData[3].temp_min %>°C - <%= forecastData[3].temp_max %>°C</p>
                           </div>
                         </div>
                         <div class="weather-extra-info col-12">
                           <p>
                             Precipitation: <%= forecastData[3].pop %>% <br>
                             Humidity: <%= forecastData[3].humidity %>% <br>
-                            Wind Speed: <%=forecastData[3].windSpeed%> km/h
+                            Wind Speed: <%=forecastData[3].speed%> km/h
                           </p>
                         </div>
                         <div class="forecast-chart" id="canvasDay3" data-graphics="<%= graphicsData[4] %>">
@@ -191,14 +191,14 @@
                           </div>
                           <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
                             <p class="temp-weather"><%= forecastData[4].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[4].tempMin %>°C - <%= forecastData[4].tempMax %>°C</p>
+                            <p class="temp-minmax text-muted"><%= forecastData[4].temp_min %>°C - <%= forecastData[4].temp_max %>°C</p>
                           </div>
                         </div>
                         <div class="weather-extra-info col-12">
                           <p>
                             Precipitation: <%= forecastData[4].pop %>% <br>
                             Humidity: <%= forecastData[4].humidity %>% <br>
-                            Wind Speed: <%=forecastData[4].windSpeed%> km/h
+                            Wind Speed: <%=forecastData[4].speed%> km/h
                           </p>
                         </div>
                         <div class="forecast-chart" id="canvasDay4" data-graphics="<%= graphicsData[5] %>">
