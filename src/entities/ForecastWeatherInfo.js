@@ -26,22 +26,22 @@ module.exports = class ForecastWeatherInfo {
 
 	setDayIndexes(forecastList) {	
 		/*
-		** Explain why this method is necessary?
+		** This method is necessary to reference the forecastList in terms of days instead of a linear list with 40 elements.
 		*/
-		let indexArray = new Array(); // aux array to build dayIndexes array inside the loop
-
-		let previousDay = new Date(forecastList[0].dt * 1000).getDate();
-		let currentDay = previousDay;
+		let initialDay = new Date(forecastList[0].dt * 1000).getDate();
+		let currentDay = initialDay;
 
 		forecastList.forEach((dayObject, index) => {
 			currentDay = new Date(dayObject.dt * 1000).getDate();
-			if(currentDay != previousDay) {
-				this.dayIndexes.push(indexArray);
-				indexArray = [];
-				previousDay++;
+			let day = currentDay - initialDay;			
+			
+			if(this.dayIndexes[day] == undefined) {
+				this.dayIndexes[day] = new Array();
+				this.dayIndexes[day].push(index);
 			} else {
-				indexArray.push(index);
+				this.dayIndexes[day].push(index);
 			}
+			
 		});
 	};
 
@@ -56,8 +56,9 @@ module.exports = class ForecastWeatherInfo {
 
 	setForecastData(forecastList) {
 		this.dayIndexes.forEach((indexesArray) => {
-			let meanIndex = Math.floor(indexesArray.length / 2);
-			this.forecastData.push(new WeatherInformation(forecastList[meanIndex]));
+			let meanPosition = Math.floor(indexesArray.length / 2);
+			let meanIndex = indexesArray[meanPosition];
+			this.forecastData.push(new WeatherInformation(forecastList[meanIndex]).data);
 		});
 	};
 
