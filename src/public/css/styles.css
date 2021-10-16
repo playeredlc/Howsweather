@@ -25,6 +25,9 @@ input {
 #weather-list {
   margin-top: 5%;
 }
+#city-input {
+  width: 70%;
+}
 
 .date {
   font-size:0.8rem;
@@ -75,11 +78,19 @@ input {
   margin-top: 3%;
 }
 
+.error-container {
+  margin-top: 3%;
+}
+
 /* responsiveness */
 /* landscape phone */
 @media only screen and (min-width: 576px){
   .forecast-item {
     height: 100px;
+  }
+  
+  #city-input {
+    width: 50%;
   }
 }
 /* tablets */
@@ -93,10 +104,16 @@ input {
   .forecast-tab {
     margin-top: 0;
   }
+  #city-input {
+    width: 30%;
+  }
 }
 /* laptops */
 @media only screen and (min-width: 992px){
   .forecast-item {
     height: 120px;
+  }
+  #city-input {
+    width: 20%;
   }
 }

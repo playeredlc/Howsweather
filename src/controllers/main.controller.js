@@ -9,16 +9,19 @@ exports.showInitialScreen = async (req, res) => {
 
 exports.showWeather = async (req, res) => {
 	
-	const weatherData = await openWeatherProvider.getWeatherData(req.body.cityName);
-	const forecastData = await openWeatherProvider.getForecastData(req.body.cityName);
+	try{
+		const weatherData = await openWeatherProvider.getWeatherData(req.body.cityName);
+		const forecastData = await openWeatherProvider.getForecastData(req.body.cityName);
 
-	const weatherObject = new WeatherInformation(weatherData);
-	const forecastObject = new ForecastWeatherInfo(forecastData);
+		const weatherObject = new WeatherInformation(weatherData);
+		const forecastObject = new ForecastWeatherInfo(forecastData);
 
-	res.render('show-info', {
-		currentData: weatherObject.data,
-		forecastData: forecastObject.forecastData,
-		graphicsData: forecastObject.hourlyTempGraphs,
-	});
-
+		res.render('show-info', {
+			currentData: weatherObject.data,
+			forecastData: forecastObject.forecastData,
+			graphicsData: forecastObject.hourlyTempGraphs,
+		});
+	} catch (err) {
+		res.render('show-error', { error: err.message || 'Unexpected error.' });
+	}
 };
