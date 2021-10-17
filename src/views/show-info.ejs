@@ -14,19 +14,19 @@
         <div class="col-12 col-sm-12 col-md-9 col-lg-10">
           <div class="tab-content" id="nav-tabContent">
             <!-- current data content -->
-            <div class="tab-pane fade show active" id="list-current" role="tabpanel" aria-labelledby="list-current-list">
+            <div class="tab-pane fade show active info-wrapper" id="list-current" role="tabpanel" aria-labelledby="list-current-list">
               <div class="row weather-row">
                 <div class="current-header col-12">
                   <h3 class="city-name"><%= currentData.location %></h1>
                   <p class="date text-muted"><%= currentData.date %></p>
                   <p><%= currentData.description %></p>
                 </div>
-                <div class="weather-info row">
-                  <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 weather-img">
-                    <img src="<%=currentData.iconURL%>" alt="weather-image">
-                  </div>
-                  <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
-                    <p class="temp-weather"><%= currentData.temp %>°C </p>
+                <div class="weather-info row">              
+                  <div class="temp">                    
+                    <p class="temp-weather">
+                      <img src="<%=currentData.iconURL%>" alt="weather-image">
+                      <%= currentData.temp %>°C                    
+                    </p>
                     <p class="temp-minmax text-muted"><%= currentData.temp_min %>°C - <%= currentData.temp_max %>°C</p>
                   </div>
                 </div>
@@ -60,26 +60,27 @@
                     <!-- DAY 0 -->
                     <div class="tab-pane fade show active" id="list-0" role="tabpanel" aria-labelledby="list-0-list">
                       <div class="row weather-row">
-                        <div class="forecast-header col-6">
-                          <h3 class="city-name"><%= forecastData[0].location %></h1>
-                          <p class="date text-muted"><%= forecastData[0].date %></p>
-                          <p><%= forecastData[0].description %></p>
-                        </div>
-                        <div class="weather-info row">
-                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 weather-img">
-                            <img src="<%=forecastData[0].iconURL%>" alt="weather-image">
+                        <div class="info-wrapper">                            
+                          <div class="forecast-header col-12">
+                            <p class="date text-muted"><%= forecastData[0].date %></p>
+                            <p><%= forecastData[0].description %></p>
                           </div>
-                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
-                            <p class="temp-weather"><%= forecastData[0].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[0].temp_min %>°C - <%= forecastData[0].temp_max %>°C</p>
+                          <div class="weather-info row">
+                            <div class="temp">
+                              <p class="temp-weather">
+                                <img src="<%=forecastData[0].iconURL%>" alt="weather-image">
+                                <%= forecastData[0].temp %>°C                              
+                              </p>
+                              <p class="temp-minmax text-muted"><%= forecastData[0].temp_min %>°C - <%= forecastData[0].temp_max %>°C</p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="weather-extra-info col-12">
-                          <p>
-                            Precipitation: <%= forecastData[0].pop %>% <br>
-                            Humidity: <%= forecastData[0].humidity %>% <br>
-                            Wind Speed: <%=forecastData[0].speed%> km/h
-                          </p>
+                          <div class="weather-extra-info col-12">
+                            <p>
+                              Precipitation: <%= forecastData[0].pop %>% <br>
+                              Humidity: <%= forecastData[0].humidity %>% <br>
+                              Wind Speed: <%=forecastData[0].speed%> km/h
+                            </p>
+                          </div>
                         </div>
                         <div class="forecast-chart" id="canvasDay0" data-graphics="<%= graphicsData[1] %>">
                             <canvas id="myChart0"></canvas>
@@ -90,87 +91,90 @@
                     <!-- DAY 1 -->
                     <div class="tab-pane fade" id="list-1" role="tabpanel" aria-labelledby="list-1-list">                     
                       <div class="row weather-row">
-                        <div class="forecast-header col-6">
-                          <h3 class="city-name"><%= forecastData[1].location %></h1>
-                          <p class="date text-muted"><%= forecastData[1].date %></p>
-                          <p><%= forecastData[1].description %></p>
-                        </div>
-                        <div class="weather-info row">
-                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 weather-img">
-                            <img src="<%=forecastData[1].iconURL%>" alt="weather-image">
+                        <div class="info-wrapper">
+                          <div class="forecast-header col-12">
+                            <p class="date text-muted"><%= forecastData[1].date %></p>
+                            <p><%= forecastData[1].description %></p>
+                          </div>                    
+                          <div class="weather-info row">
+                            <div class="temp">
+                              <p class="temp-weather">
+                                <img src="<%=forecastData[1].iconURL%>" alt="weather-image">
+                                <%= forecastData[1].temp %>°C                              
+                              </p>
+                              <p class="temp-minmax text-muted"><%= forecastData[1].temp_min %>°C - <%= forecastData[1].temp_max %>°C</p>
+                            </div>
                           </div>
-                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
-                            <p class="temp-weather"><%= forecastData[1].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[1].temp_min %>°C - <%= forecastData[1].temp_max %>°C</p>
-                          </div>
-                        </div>
-                        <div class="weather-extra-info col-12">
-                          <p>
-                            Precipitation: <%= forecastData[1].pop %>% <br>
-                            Humidity: <%= forecastData[1].humidity %>% <br>
-                            Wind Speed: <%=forecastData[1].speed%> km/h
-                          </p>
-                        </div>
+                          <div class="weather-extra-info col-12">
+                            <p>
+                              Precipitation: <%= forecastData[1].pop %>% <br>
+                              Humidity: <%= forecastData[1].humidity %>% <br>
+                              Wind Speed: <%=forecastData[1].speed%> km/h
+                            </p>
+                          </div>  
+                        </div>                      
                         <div class="forecast-chart" id="canvasDay1" data-graphics="<%= graphicsData[2] %>">
                           <canvas id="myChart1"></canvas>
                         </div>
-                      </div> 
+                      </div>                      
                     </div>
                     
                     <!-- DAY 2 -->
                     <div class="tab-pane fade" id="list-2" role="tabpanel" aria-labelledby="list-2-list">
                       <div class="row weather-row">
-                        <div class="forecast-header col-6">
-                          <h3 class="city-name"><%= forecastData[2].location %></h1>
-                          <p class="date text-muted"><%= forecastData[2].date %></p>
-                          <p><%= forecastData[2].description %></p>
-                        </div>
-                        <div class="weather-info row">
-                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 weather-img">
-                            <img src="<%=forecastData[2].iconURL%>" alt="weather-image">
+                        <div class="info-wrapper">
+                          <div class="forecast-header col-12">
+                            <p class="date text-muted"><%= forecastData[2].date %></p>
+                            <p><%= forecastData[2].description %></p>
                           </div>
-                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
-                            <p class="temp-weather"><%= forecastData[2].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[2].temp_min %>°C - <%= forecastData[2].temp_max %>°C</p>
+                          <div class="weather-info row">
+                            <div class="temp">
+                              <p class="temp-weather">
+                                <img src="<%=forecastData[2].iconURL%>" alt="weather-image">
+                                <%= forecastData[2].temp %>°C
+                              </p>
+                              <p class="temp-minmax text-muted"><%= forecastData[2].temp_min %>°C - <%= forecastData[2].temp_max %>°C</p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="weather-extra-info col-12">
-                          <p>
-                            Precipitation: <%= forecastData[2].pop %>% <br>
-                            Humidity: <%= forecastData[2].humidity %>% <br>
-                            Wind Speed: <%=forecastData[2].speed%> km/h
-                          </p>
+                          <div class="weather-extra-info col-12">
+                            <p>
+                              Precipitation: <%= forecastData[2].pop %>% <br>
+                              Humidity: <%= forecastData[2].humidity %>% <br>
+                              Wind Speed: <%=forecastData[2].speed%> km/h
+                            </p>
+                          </div>                          
                         </div>
                         <div class="forecast-chart" id="canvasDay2" data-graphics="<%= graphicsData[3] %>">
                           <canvas id="myChart2"></canvas>
-                        </div>
+                        </div>                        
                       </div>
                     </div>
 
                     <!-- DAY 3 -->
                     <div class="tab-pane fade" id="list-3" role="tabpanel" aria-labelledby="list-3-list">
                       <div class="row weather-row">
-                        <div class="forecast-header col-6">
-                          <h3 class="city-name"><%= forecastData[3].location %></h1>
-                          <p class="date text-muted"><%= forecastData[3].date %></p>
-                          <p><%= forecastData[3].description %></p>
-                        </div>
-                        <div class="weather-info row">
-                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 weather-img">
-                            <img src="<%=forecastData[3].iconURL%>" alt="weather-image">
+                        <div class="info-wrapper">
+                          <div class="forecast-header col-12">
+                            <p class="date text-muted"><%= forecastData[3].date %></p>
+                            <p><%= forecastData[3].description %></p>
                           </div>
-                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
-                            <p class="temp-weather"><%= forecastData[3].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[3].temp_min %>°C - <%= forecastData[3].temp_max %>°C</p>
+                          <div class="weather-info row">                            
+                            <div class="temp">
+                              <p class="temp-weather">
+                                <img src="<%=forecastData[3].iconURL%>" alt="weather-image">
+                                <%= forecastData[3].temp %>°C
+                              </p>
+                              <p class="temp-minmax text-muted"><%= forecastData[3].temp_min %>°C - <%= forecastData[3].temp_max %>°C</p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="weather-extra-info col-12">
-                          <p>
-                            Precipitation: <%= forecastData[3].pop %>% <br>
-                            Humidity: <%= forecastData[3].humidity %>% <br>
-                            Wind Speed: <%=forecastData[3].speed%> km/h
-                          </p>
-                        </div>
+                          <div class="weather-extra-info col-12">
+                            <p>
+                              Precipitation: <%= forecastData[3].pop %>% <br>
+                              Humidity: <%= forecastData[3].humidity %>% <br>
+                              Wind Speed: <%=forecastData[3].speed%> km/h
+                            </p>
+                          </div>
+                        </div>                        
                         <div class="forecast-chart" id="canvasDay3" data-graphics="<%= graphicsData[4] %>">
                           <canvas id="myChart3"></canvas>
                         </div>
@@ -180,26 +184,27 @@
                     <!-- DAY 4 -->
                     <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list">
                       <div class="row weather-row">
-                        <div class="forecast-header col-6">
-                          <h3 class="city-name"><%= forecastData[4].location %></h1>
-                          <p class="date text-muted"><%= forecastData[4].date %></p>
-                          <p><%= forecastData[4].description %></p>
-                        </div>
-                        <div class="weather-info row">
-                          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 weather-img">
-                            <img src="<%=forecastData[4].iconURL%>" alt="weather-image">
+                        <div class="info-wrapper">
+                          <div class="forecast-header col-12">                            
+                            <p class="date text-muted"><%= forecastData[4].date %></p>
+                            <p><%= forecastData[4].description %></p>
                           </div>
-                          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 temp">
-                            <p class="temp-weather"><%= forecastData[4].temp %>°C </p>
-                            <p class="temp-minmax text-muted"><%= forecastData[4].temp_min %>°C - <%= forecastData[4].temp_max %>°C</p>
+                          <div class="weather-info row">                            
+                            <div class="temp">
+                              <p class="temp-weather">
+                                <img src="<%=forecastData[4].iconURL%>" alt="weather-image">
+                                <%= forecastData[4].temp %>°C
+                              </p>
+                              <p class="temp-minmax text-muted"><%= forecastData[4].temp_min %>°C - <%= forecastData[4].temp_max %>°C</p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="weather-extra-info col-12">
-                          <p>
-                            Precipitation: <%= forecastData[4].pop %>% <br>
-                            Humidity: <%= forecastData[4].humidity %>% <br>
-                            Wind Speed: <%=forecastData[4].speed%> km/h
-                          </p>
+                          <div class="weather-extra-info col-12">
+                            <p>
+                              Precipitation: <%= forecastData[4].pop %>% <br>
+                              Humidity: <%= forecastData[4].humidity %>% <br>
+                              Wind Speed: <%=forecastData[4].speed%> km/h
+                            </p>
+                          </div>
                         </div>
                         <div class="forecast-chart" id="canvasDay4" data-graphics="<%= graphicsData[5] %>">
                           <canvas id="myChart4"></canvas>
