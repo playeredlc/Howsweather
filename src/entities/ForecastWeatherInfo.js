@@ -14,6 +14,7 @@ module.exports = class ForecastWeatherInfo {
 			this.setDayIndexes(forecastList);
 			this.setHourlyGraphicsData(forecastList);
 			this.setForecastData(forecastList);
+			this.shiftArrays();
 
 			return this;
 		} else if(openWeatherApiResponse.cod == 404) {
@@ -49,17 +50,34 @@ module.exports = class ForecastWeatherInfo {
 		this.dayIndexes.forEach((day, index) => {
 			this.hourlyTempGraphs[index] = new Array();
 			day.forEach( listIndex => {
-				this.hourlyTempGraphs[index].push(forecastList[listIndex].main.temp);
+				this.hourlyTempGraphs[index].push(Math.round(forecastList[listIndex].main.temp));
 			});
 		});
 	};
 
 	setForecastData(forecastList) {
-		this.dayIndexes.forEach((indexesArray) => {
+		this.dayIndexes.forEach((indexesArray, idx) => {
 			let meanPosition = Math.floor(indexesArray.length / 2);
 			let meanIndex = indexesArray[meanPosition];
-			this.forecastData.push(new WeatherInformation(forecastList[meanIndex]).data);
+			
+			let forecastDataObject = new WeatherInformation(forecastList[meanIndex]).data;
+
+			// set temp min/max considering the whole day
+			forecastDataObject.temp_min = Math.min( ... this.hourlyTempGraphs[idx]);
+			forecastDataObject.temp_max = Math.max( ... this.hourlyTempGraphs[idx]);
+
+			this.forecastData.push(forecastDataObject);
 		});
+	};
+
+	shiftArrays() {		
+		// shifting array is used when there is information about the current day in the forecast object.
+		if(this.hourlyTempGraphs.length == 6) {
+			this.hourlyTempGraphs.shift();
+		}
+		if(this.forecastData.length == 6) {
+			this.forecastData.shift();
+		}
 	};
 
 };

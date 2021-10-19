@@ -6,7 +6,7 @@ module.exports = class WeatherInformation {
 			
 			this.data = {
 				location: openWeatherApiResponse.name || null,
-				pop: openWeatherApiResponse.pop || null,
+				pop: openWeatherApiResponse.pop,
 				cod: openWeatherApiResponse.cod,
 				dt: openWeatherApiResponse.dt,
 				... openWeatherApiResponse.main,
@@ -17,7 +17,6 @@ module.exports = class WeatherInformation {
 			this.roundTemperatures();
 			this.setIconURL();
 			this.formatDate();
-
 			return this;
 		
 		} else if (openWeatherApiResponse.cod == 404) {	
