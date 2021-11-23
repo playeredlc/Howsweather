@@ -9,6 +9,8 @@
 	<i>Howsweather</i> is the place to go!
 </strong>
 
+<br>
+
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/playeredlc/Howsweather/blob/master/LICENSE)
 
 Check online: [howsweather.herokuapp.com](https://howsweather.herokuapp.com/)
