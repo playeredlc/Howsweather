@@ -1,2 +1,17 @@
-# What is it?
-It's a simple project to get live data using the [OpenWeather API](https://openweathermap.org/api). Dealing with JSON formats, parsing and fetching specific data which will be sent back to the browser as HTML. 
+<div align="center">
+	<img src="https://github.com/playeredlc/Howsweather/blob/master/src/public/images/howsweather-logo.svg">
+</div>
+
+<div align="center">
+
+<strong>Howsweather short description.</strong>
+
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/playeredlc/Howsweather/blob/master/LICENSE)
+
+Check online: [howsweather.herokuapp.com](https://howsweather.herokuapp.com/)
+
+</div>
+
+<hr>
+
+<strong><i> </> </i></strong> Developed by <strong>edlc</strong>. [Get in touch!](https://github.com/playeredlc) :metal:
