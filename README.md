@@ -4,12 +4,8 @@
 
 <div align="center">
 
-<strong>
-	Are you wondering how's the weather? Or how's the weather going to be like the next days?<br>
-	<i>Howsweather</i> is the place to go!
-</strong>
-
-<br>
+<strong>Are you wondering how's the weather? Or how's the weather going to be like the next days?<br>
+	<i>Howsweather</i> is the place to go!</strong><br>
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/playeredlc/Howsweather/blob/master/LICENSE)
 

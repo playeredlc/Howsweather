@@ -31,11 +31,21 @@ module.exports = class ForecastWeatherInfo {
 		*/
 		let initialDay = new Date(forecastList[0].dt * 1000).getDate();
 		let currentDay = initialDay;
+		let previousDay, monthSize;
 
 		forecastList.forEach((dayObject, index) => {
+			previousDay = currentDay;
 			currentDay = new Date(dayObject.dt * 1000).getDate();
-			let day = currentDay - initialDay;			
-			
+
+			let day = currentDay - initialDay;
+
+			if(currentDay === 1 && previousDay !== 1) {
+				monthSize = previousDay;
+			}
+			if(day < 0) {
+				day = day + monthSize;
+			}
+
 			if(this.dayIndexes[day] == undefined) {
 				this.dayIndexes[day] = new Array();
 				this.dayIndexes[day].push(index);
