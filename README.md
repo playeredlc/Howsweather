@@ -13,7 +13,6 @@ Check online: [howsweather.herokuapp.com](https://howsweather.herokuapp.com/)
 
 [About](#about)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 [Features](#features)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-[Layout](#layout)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 [Tech](#technologies)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 [How to run](#running-locally)
 
